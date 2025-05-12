@@ -2,61 +2,155 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Princess Book for Apit</title>
   <style>
-    body {
-      margin: 0;
+    body { margin: 0;
       font-family: 'Georgia', serif;
-      background: linear-gradient(to bottom, #2c001e, #000000);
-      color: #fce4ec;
-      overflow-x: hidden;
+      background: linear-gradient(to bottom, #1c1c1c, #330033);
+      color: #fff0f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .cover, .book {
+      display: none;
+    }
+
+    .cover.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .cover h1 {
+      font-size: 2.5em;
+      color: #ffe6f0;
+      text-shadow: 0 0 10px #ff99cc;
+      margin-bottom: 30px;
+    }
+
+    .cover button {
+      background: #ff66b2;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 102, 178, 0.5);
+      transition: background 0.3s ease;
+    }
+
+    .cover button:hover {
+      background: #e055a2;
+    }
+
+    .book.active {
+      display: block;
     }
 
     .book {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
+      width: 80%;
+      max-width: 800px;
+      background: #2d0033;
+      border: 5px solid #ffccff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      margin: 50px auto;
+      box-shadow: 0 0 30px #ff99cc;
+      position: relative;
+    }
+
+    .ribbon {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 160px;
+      height: 30px;
+      background: #ff99cc;
+      color: white;
+      text-align: center;
+      line-height: 30px;
+      font-weight: bold;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .crown {
+      position: absolute;
+      top: -65px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 40px;
+      color: #ffd700;
+      text-shadow: 0 0 10px #fff, 0 0 20px #ffd700;
     }
 
     .page {
-      background: #1a0010;
-      border: 2px solid #4b0037;
-      padding: 40px;
-      margin-bottom: 40px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
-    }
-
-    h1, h2 {
-      text-align: center;
-      color: #ffb6c1;
-      text-shadow: 1px 1px 2px #000000;
-    }
-
-    .toc ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .toc li {
-      margin: 10px 0;
+      display: none;
       font-size: 18px;
+      line-height: 1.6;
     }
 
-    .content {
-      white-space: pre-wrap;
-      line-height: 1.8;
+    .page.active {
+      display: block;
     }
 
-    a {
-      color: #ff99cc;
-      text-decoration: none;
+    .navigation {
+      text-align: center;
+      margin-top: 20px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    button.nav {
+      background: #ff66b2;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 102, 178, 0.4);
+      transition: background 0.3s ease;
     }
+
+    button.nav:hover {
+      background: #e055a2;
+    }
+
+    h2 {
+      text-align: center;
+      font-family: 'Cursive', sans-serif;
+      color: #ffe6f0;
+      margin-bottom: 20px;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://www.transparenttextures.com/patterns/lined-paper.png');
+      opacity: 0.04;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cover active" id="coverPage">
+    <h1>Happy 18th Birthday, My Miss Otarra</h1>
+    <button onclick="openBook()">Click to Open</button>
+  </div>
+
+  <div class="book" id="bookPage">
+    <div class="ribbon">My Princess</div>
+    <div class="crown">👑</div>
   </style>
 </head>
 <body>
