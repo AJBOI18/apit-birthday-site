@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Princess Book for Apit</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom, #1c1c1c, #330033);
+      color: #fff0f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .cover, .book {
+      display: none;
+    }
+
+    .cover.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .cover h1 {
+      font-size: 2.5em;
+      color: #ffe6f0;
+      text-shadow: 0 0 10px #ff99cc;
+      margin-bottom: 30px;
+    }
+
+    .cover button {
+      background: #ff66b2;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 102, 178, 0.5);
+      transition: background 0.3s ease;
+    }
+
+    .cover button:hover {
+      background: #e055a2;
+    }
+
+    .book.active {
+      display: block;
+    }
+
+    .book {
+      width: 80%;
+      max-width: 800px;
+      background: #2d0033;
+      border: 5px solid #ffccff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      margin: 50px auto;
+      box-shadow: 0 0 30px #ff99cc;
+      position: relative;
+    }
+
+    .ribbon {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 160px;
+      height: 30px;
+      background: #ff99cc;
+      color: white;
+      text-align: center;
+      line-height: 30px;
+      font-weight: bold;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .crown {
+      position: absolute;
+      top: -65px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 40px;
+      color: #ffd700;
+      text-shadow: 0 0 10px #fff, 0 0 20px #ffd700;
+    }
+
+    .page {
+      display: none;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .navigation {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button.nav {
+      background: #ff66b2;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 102, 178, 0.4);
+      transition: background 0.3s ease;
+    }
+
+    button.nav:hover {
+      background: #e055a2;
+    }
+
+    h2 {
+      text-align: center;
+      font-family: 'Cursive', sans-serif;
+      color: #ffe6f0;
+      margin-bottom: 20px;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://www.transparenttextures.com/patterns/lined-paper.png');
+      opacity: 0.04;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cover active" id="coverPage">
+    <h1>Happy 18th Birthday, My Miss Otarra</h1>
+    <button onclick="openBook()">Click to Open</button>
+  </div>
+
+  <div class="book" id="bookPage">
+    <div class="ribbon">My Princess</div>
+    <div class="crown">👑</div>
+
+    <div class="page active">
+      <h2>Table of Contents</h2>
+      <p>1. BEAUTY<br>2. My Promise<br>3. Romantic Letter<br>4. Love Letter</p>
+    </div>
+
+    <div class="page">
+      <h2>1. BEAUTY</h2>
+      <p>You are the very definition of beauty, not just in how the world sees you, but in how you exist so gracefully in it. Your eyes hold galaxies—soft, deep, and endlessly captivating. One glance from you and my world stills. Your smile lights up rooms, but more than that, it lights up my soul. Your lips carry warmth, your laugh is music, and your presence is peace. Your beauty is not something you wear, it’s something you are—effortless, natural, breathtaking.
+
+But what makes you most beautiful is how your heart shines brighter than any star. You care so deeply, love so fully, and carry yourself with such grace and kindness that it humbles me. The way you comfort, support, and believe in the people you love is nothing short of magical. Your beauty is in your words, your thoughts, and the quiet strength you carry inside.
+
+You are a masterpiece, both inside and out. You don’t just define beauty—you redefine it. And every single day, I find new ways to fall for the way you shine, speak, and simply exist. If beauty had a face, a soul, and a name—it would be yours.</p>
+    </div>
+
+    <div class="page">
+      <h2>2. MY PROMISE</h2>
+      <p>My Dearest Apit,
+
+I promise to love you in ways both grand and gentle. I will honor you not only in moments of joy but even more so in trials and storms. I promise to grow with you, to change with you, and to always choose you—every day, no matter what the world throws at us.
+
+I vow to never let you feel alone in this life. I’ll be your biggest fan, your quiet strength, your safe place. I promise to listen without judgment, speak without anger, and hold you when words fall short. I will respect your dreams as if they were my own and build with you a life filled with peace, passion, and shared purpose.
+
+I will never stop learning how to love you better. I will apologize when I’m wrong, forgive quickly, and protect your heart like it’s the most sacred gift I’ve ever received—because it is. I’ll never stop fighting for us.</p>
+    </div>
+
+    <div class="page" id="romantic-letter">
+      <h2>3. ROMANTIC LETTER</h2>
+      <div class="content">
+      </p>To My Dearest Apit,
+
+You are the sun that never fails to rise in my world, the moon that glows softly through every dark night of my doubts. From the way you laugh like sunlight dancing on water to the quiet strength you carry in your soul, you are poetry in human form. You are a masterpiece made not by brushstrokes but by the grace of every choice you make—and I am endlessly, madly, gratefully in awe of you.
+
+My love, you are not just beautiful—you define beauty. Your eyes, the color of calm days and warm evenings, are twin galaxies where I see home, hope, and healing. Your smile, my babu, has the power to stop time and start it again with a little more magic. And when you laugh—oh baby, when you laugh—the world becomes softer. More forgiving. More alive.
+
+There’s a softness in you that wraps around the hardest parts of life, a gentleness that speaks louder than words. You, bebu, are tenderness in its purest form. But don’t get me wrong—behind that softness is a fire that blazes. Langga, your strength humbles me. You stand firm when others falter. You lift even when you are tired. You fight for what you love, and that... that is why I love you more than words can ever wrap around.
+
+You are the reason flowers seem brighter now, why songs hit deeper, why days have more meaning. You’re the morning coffee that makes life easier, the surprise rain that makes it more poetic. You're a hundred firsts and a thousand forevers, all in one gentle touch, one look from you, sis. You are the reason I try, the reason I hope, and the reason I believe love like ours is real.
+
+My dae, you’re not just someone I love. You are the standard by which I measure all things beautiful, kind, and true.</p>
+      </div>
+    </div>
+
+    <div class="page" id="romantic-letter">
+      <h2>3.  ROMANTIC LETTER (PART 2)</h2>
+      <div class="content">
+        </p>Every word you speak is a note in my favorite song. Every glance from you is a verse I never want to stop reading.
+
+Ms. Otarra, even in your silence, you speak volumes. When you listen, you make me feel like I matter. When you care, you care so deeply that the whole world feels warmer. When you love—oh, lang—you love with a depth that reshapes my soul. I’ve never met someone so passionately alive. So divinely sincere. So incredibly you.
+
+Bab, your kindness isn't loud, but it changes everything around it. Your eyes see the good in others, even when they can’t see it themselves. Your heart forgives even when it hurts. And your soul? Your soul glows. It glows like a lighthouse in a storm, like fireflies in summer—constant, silent, beautiful.
+
+Babi, you are a thousand colors in a world of black and white. You are laughter under the stars and deep talks under the covers. You are both my calm and my chaos. My dream and my reality. My safe place and my greatest adventure.
+
+BB, I would write a thousand books trying to describe what you mean to me, and still fall short. But if I could write one word across the sky every day, it would simply be “Apit”—because that name alone fills me with warmth, joy, and purpose.
+
+Palanga, I don’t just love you. I am in awe of you. You are art, you are soul, you are everything good wrapped in skin and stardust. And if the stars had voices, they would sing your name.</p>
+      </div>
+    </div>
+
+    <div class="page" id="love-letter">
+      <h2>4. LOVE LETTER (Part 1)</h2>
+      <div class="content">
+       </p>To My Beloved Apit,
+
+Today, I write to you not just as the love of my life, but as the woman I dream of calling my wife. You, Apit, are everything my heart could ever ask for—gentle, strong, radiant, kind, and deeply, profoundly mine.
+
+You have always stood out. In a world of noise, you were the calm. In a world of rushing, you were the pause. You never needed to shout to be heard. Your soul speaks in its softness. It speaks in your care for others, your ability to listen with your heart, and the way you make people feel seen. You are grace in motion.
+
+I need you to know—I have no regrets. Not a single one. Not for a second. You came into my life like the most beautiful storm, and you turned my world right-side up. I don’t wish we met sooner. I don’t wish anything was different. Everything led me to you—and that, my love, is the most perfect part of my story.
+
+You make me believe in forever. In growing old together. In quiet mornings and loud laughter and late-night talks that turn into dreams. I see you in every future I imagine. You as my wife. You holding our child someday. You dancing in the kitchen barefoot as the morning sun kisses your cheek. You, as my always.
+
+I dream of building a home with you—not just a house with walls and windows, but a place full of warmth, laughter, love, and safety. I dream of celebrating your birthdays forever, each year more special than the last, because we’d be celebrating not just your birth, but everything you are to me—my partner, my love, my everything.
+
+I dream of the small things too—cooking breakfast together on sleepy Sundays, holding your hand during movies, sharing inside jokes no one else understands.</p>
+      </div>
+    </div>
+
+    <div class="page">
+      <h2>4. LOVE LETTER (Part 2)</h2>
+      <div class="content">
+        </p>I want the ordinary with you, because with you, even the ordinary feels like magic.
+
+You inspire me to be a better man. Your love is not a demand, but an invitation to rise. Because of you, I want to heal what’s broken in me. I want to protect what’s fragile in you. I want to be the place you come home to, always—physically, emotionally, spiritually.
+
+There’s a reason why your smile is my favorite view. It lights up not just your face but the very air around you. There’s a reason why your voice calms my storms. It’s because your love has become my compass, my anchor, and my most treasured gift. You are, in every sense, the answer to prayers I didn’t even know I was whispering.
+
+I promise that no matter how much time passes, I will never stop choosing you. I will never stop learning how to love you better. I will never stop being grateful for your existence.
+
+And though I know I’ve made mistakes—I stand here before you with a heart wide open, filled with genuine remorse and even more genuine love. I promise to change. To grow. To earn back every ounce of trust, every sparkle in your eyes, and every beat of your heart. I don’t want to live without being the best version of myself—for you, with you, because of you.
+
+You are not just the girl I love—you are the woman I want to spend forever with. If I ever get the honor of calling you my wife, I will spend every day making sure you know why you said yes. I will write poems in your name, build dreams around your hopes, and breathe love into every second of our lives.
+
+Apit, I love you with every fiber of my being. And if the stars had voices, they would still fall silent in awe of the way I love you.</p>
+      </div>
+    </div>
+
+    <div class="navigation">
+      <button class="nav" onclick="prevPage()">Back</button>
+      <button class="nav" onclick="nextPage()">Next</button>
+    </div>
+  </div>
+
+  <audio id="bgMusic" src="palangga-shael.mp3" preload="auto"></audio>
+
+  <script>
+    let currentPage = 0;
+    const pages = document.querySelectorAll('.page');
+    const book = document.getElementById("bookPage");
+    const cover = document.getElementById("coverPage");
+    const bgMusic = document.getElementById("bgMusic");
+
+    function showPage(index) {
+      pages.forEach((p, i) => p.classList.toggle('active', i === index));
+    }
+
+    function nextPage() {
+      if (currentPage < pages.length - 1) {
+        currentPage++;
+        showPage(currentPage);
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        showPage(currentPage);
+      }
+    }
+
+    function openBook() {
+      cover.classList.remove('active');
+      book.classList.add('active');
+      bgMusic.play();
+    }
+
+    showPage(currentPage);
+  </script>
+</body>
+</html>
